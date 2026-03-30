@@ -142,57 +142,42 @@ public class TowerCreationSystem extends EntitySystem {
      * @param entity Turm-Entitaet
      */
     public void whichTower(Vector2 position, Entity entity){
+        int x=0,y=0;
+        float width=0, height=0, offset = 0;
+
         if (towerType.equals("Tower1") || towerType.equals("Tower2") || towerType.equals("Tower3")){
-            entity.add(new Transform(
-                position,
-                1,
-                new Vector2(40, 55).scl(Main.UNIT_SCALE),
-                new Vector2(1, 1),
-                0f,
-                0
-            ));
-            entity.add(new Hitbox(new Vector2(position.x, position.y),
-                1.85f, 1.85f, Hitbox.BoxType.TOWER));
+            x = 40;
+            y = 55;
+            width = 1.85f;
+            height = 1.85f; 
+        }else if (towerType.equals("CatapultTower")){
+            x = 54;
+            y = 80;
+            width = 2.75f;
+            height = 2.75f;
+        }else if (towerType.equals("WizardTower1")){
+            x = 45;
+            y = 65;
+            width = 2.25f;
+            height = 2.25f;
+        } else if(towerType.equals("WizardTower2") || towerType.equals("WizardTower3")){
+            x = 45;
+            y = 84;
+            width = 2.25f;
+            height = 2.25f;
+            offset = Offset.WIZARD_TOWER2_TRANSFORM_Y;
         }
 
-        if (towerType.equals("CatapultTower")){
-            entity.add(new Transform(
-                position,
+        entity.add(new Transform(
+                new Vector2(position.x, position.y + offset),
                 1,
-                new Vector2(54, 80).scl(Main.UNIT_SCALE),
+                new Vector2(x, y).scl(Main.UNIT_SCALE),
                 new Vector2(1, 1),
                 0f,
                 0
             ));
             entity.add(new Hitbox(new Vector2(position.x, position.y),
-                2.75f, 2.75f, Hitbox.BoxType.TOWER));
-        }
-
-        if (towerType.equals("WizardTower1")){
-            entity.add(new Transform(
-                position,
-                1,
-                new Vector2(45, 65).scl(Main.UNIT_SCALE),
-                new Vector2(1, 1),
-                0f,
-                0
-            ));
-            entity.add(new Hitbox(new Vector2(position.x, position.y),
-                2.25f, 2.25f, Hitbox.BoxType.TOWER));
-        }
-
-        if(towerType.equals("WizardTower2") || towerType.equals("WizardTower3")){
-            entity.add(new Transform(
-                new Vector2(position.x, position.y + Offset.WIZARD_TOWER2_TRANSFORM_Y),
-                1,
-                new Vector2(45, 84).scl(Main.UNIT_SCALE),
-                new Vector2(1, 1),
-                0f,
-                0
-            ));
-            entity.add(new Hitbox(new Vector2(position.x, position.y),
-                2.25f, 2.25f, Hitbox.BoxType.TOWER));
-        }
+                width, height, Hitbox.BoxType.TOWER));
     }
 
     public void setHovering(boolean hovering) {

@@ -19,6 +19,7 @@ import io.github.lqqqqqq69.asset.SoundAsset;
 import io.github.lqqqqqq69.component.Animation2D;
 import io.github.lqqqqqq69.component.Facing;
 import io.github.lqqqqqq69.component.Graphic;
+import io.github.lqqqqqq69.component.Hitbox;
 import io.github.lqqqqqq69.component.Hover;
 import io.github.lqqqqqq69.component.PlacementValid;
 import io.github.lqqqqqq69.component.PreviewTowerRange;
@@ -88,8 +89,7 @@ public class TowerPlacementSystem extends IteratingSystem {
         
         towerCreationSystem.setHovering(false);
         entity.remove(Hover.class); 
-
-
+        
         Transform transform = Transform.MAPPER.get(entity);
         Vector2 position = transform.getPosition();
 
@@ -98,6 +98,17 @@ public class TowerPlacementSystem extends IteratingSystem {
         engine.addEntity(troop);
 
         entity.remove(PreviewTowerRange.class);
+    }
+
+    /**
+     * createVisualBox erstellt eine unsichtbare Hitbox für platzierte Türme
+     * diese wird benoetigt, da sonst Truppen von Tuermen, welche in der Theorie weiter entfernt liegen, vorne liegende Tuerme überdecken koennen
+     */
+    public void createVisualBox(Entity entity){
+        Transform transform = Transform.MAPPER.get(entity);
+        Vector2 position = transform.getPosition();
+        float offset = 0;
+        entity.add(new Hitbox(new Vector2(position.x, position.y), 1, 1, Hitbox.BoxType.VISUAL));
     }
 
 

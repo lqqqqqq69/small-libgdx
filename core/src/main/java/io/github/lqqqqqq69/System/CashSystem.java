@@ -14,7 +14,7 @@ public class CashSystem{
      */
     public CashSystem(int level){
         if (level == 1){
-            cashAmount = 80;
+            cashAmount = 8000;
         }
         if (level == 2){
             cashAmount = 100;

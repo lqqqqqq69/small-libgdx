@@ -11,7 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 public class Hitbox implements Component {
     public static final ComponentMapper<Hitbox> MAPPER = ComponentMapper.getFor(Hitbox.class);
 
-    public enum BoxType { ENEMY, DEFEND, PROJECTILE, TOWER, PATH, MOUSE }
+    public enum BoxType { ENEMY, DEFEND, PROJECTILE, TOWER, PATH, MOUSE, VISUAL}
     
     private final BoxType boxType;  // Art der Entität/ Hitbox
     private Rectangle bounds;       // Hitbox

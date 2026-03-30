@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -18,6 +19,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import io.github.lqqqqqq69.InputService.InputService;
 import io.github.lqqqqqq69.Main;
 import io.github.lqqqqqq69.component.Graphic;
+import io.github.lqqqqqq69.component.Hitbox;
 import io.github.lqqqqqq69.component.PreviewTowerRange;
 import io.github.lqqqqqq69.component.TowerRange;
 import io.github.lqqqqqq69.component.Transform;
@@ -128,6 +130,17 @@ public class RenderSystem extends SortedIteratingSystem implements Disposable {
             }
 
         }
+
+        // Anzeige aller Hitboxen in Rot
+        for (Entity entity : getEngine().getEntitiesFor(Family.all(Hitbox.class, Transform.class).get())) {
+            Hitbox hitbox = Hitbox.MAPPER.get(entity);
+            if (hitbox != null) {
+                shapeRenderer.setColor(1, 0, 0, 1); // Rot
+                Rectangle bounds = hitbox.getBounds();
+                shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+            }
+        }
+
         shapeRenderer.end();
     }
     
