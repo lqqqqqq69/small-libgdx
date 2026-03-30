@@ -1,0 +1,120 @@
+{
+  "Tower1": {
+    "name": "Tower1",
+    "troopName": "Archer1",
+    "projectileType": "Arrow",
+    "level": 1,
+    "damage": 2,
+    "range": 5.0,
+    "cooldown": 1.6,
+    "buyCost": 40,
+    "upgradeCost": [10],
+    "totalCost": 40,
+    "upgradable": true,
+    "upgradeTo": ["Tower2"],
+    "effect": "none",
+    "projectilespeed": 25
+  },
+
+  "Tower2": {
+    "name": "Tower2",
+    "troopName": "Archer2",
+    "projectileType": "Arrow",
+    "level": 2,
+    "damage": 2,
+    "range": 5.5,
+    "cooldown": 1.3,
+    "buyCost": 10,
+    "upgradeCost": [10],
+    "totalCost": 50,
+    "upgradable": true,
+    "upgradeTo": ["Tower3"],
+    "effect": "none",
+    "projectilespeed": 25
+  },
+
+  "Tower3": {
+    "name": "Tower3",
+    "troopName": "Archer3",
+    "projectileType": "Arrow",
+    "level": 3,
+    "damage": 2,
+    "range": 6.0,
+    "cooldown": 1,
+    "buyCost": 10,
+    "upgradeCost": [],
+    "totalCost": 60,
+    "upgradable": false,
+    "upgradeTo": [],
+    "effect": "none",
+    "projectilespeed": 25
+  },
+
+  "CatapultTower": {
+    "name": "CatapultTower",
+    "troopName": "Catapult",
+    "projectileType": "Stone",
+    "level": 1,
+    "damage": 10,
+    "range": 9.0,
+    "cooldown": 3.0,
+    "buyCost": 70,
+    "upgradeCost": [],
+    "totalCost": 70,
+    "upgradable": false,
+    "upgradeTo": [],
+    "effect": "none",
+    "projectilespeed": 40
+  },
+
+  "WizardTower1": {
+    "name": "WizardTower1",
+    "troopName": "Wizard1",
+    "projectileType": "Magic",
+    "level": 1,
+    "damage": 3,
+    "range": 3.5,
+    "cooldown": 1.5,
+    "buyCost": 50,
+    "upgradeCost": [40, 40],
+    "totalCost": 50,
+    "upgradable": true,
+    "upgradeTo": ["WizardTower2", "WizardTower3"],
+    "effect": "none",
+    "projectilespeed": 15
+  },
+
+  "WizardTower2": {
+    "name": "WizardTower2",
+    "troopName": "Wizard2",
+    "projectileType": "Ice",
+    "level": 2,
+    "damage": 2,
+    "range": 4.5,
+    "cooldown": 1.5,
+    "buyCost": 40,
+    "upgradeCost": [],
+    "totalCost": 90,
+    "upgradable": false,
+    "upgradeTo": [],
+    "effect": "slowaoe",
+    "projectilespeed": 25
+  },
+
+  "WizardTower3": {
+    "name": "WizardTower3",
+    "troopName": "Wizard2",
+    "projectileType": "Fire",
+    "level": 3,
+    "damage": 2,
+    "range": 4.5,
+    "cooldown": 1.5,
+    "buyCost": 40,
+    "upgradeCost": [],
+    "totalCost": 90,
+    "upgradable": false,
+    "upgradeTo": [],
+    "effect": "aoe",
+    "projectilespeed": 25
+  }
+}

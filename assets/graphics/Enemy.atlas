@@ -1,0 +1,349 @@
+
+Enemy.png
+size: 448, 392
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+Goblin/base/Goblin
+  rotate: false
+  xy: 4, 4
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+Goblin/w_down
+  rotate: false
+  xy: 116, 4
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+Goblin/w_down
+  rotate: false
+  xy: 228, 4
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+Goblin/w_down
+  rotate: false
+  xy: 340, 4
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+Goblin/w_down
+  rotate: false
+  xy: 4, 60
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+Goblin/w_down
+  rotate: false
+  xy: 116, 60
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+Goblin/w_down
+  rotate: false
+  xy: 228, 60
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+Goblin/w_left
+  rotate: false
+  xy: 340, 60
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+Goblin/w_left
+  rotate: false
+  xy: 4, 116
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+Goblin/w_left
+  rotate: false
+  xy: 60, 116
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+Goblin/w_left
+  rotate: false
+  xy: 172, 116
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+Goblin/w_left
+  rotate: false
+  xy: 284, 116
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+Goblin/w_left
+  rotate: false
+  xy: 396, 116
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+Goblin/w_right
+  rotate: false
+  xy: 60, 172
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+Goblin/w_right
+  rotate: false
+  xy: 172, 172
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+Goblin/w_right
+  rotate: false
+  xy: 284, 172
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+Goblin/w_right
+  rotate: false
+  xy: 396, 172
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+Goblin/w_right
+  rotate: false
+  xy: 60, 228
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+Goblin/w_right
+  rotate: false
+  xy: 172, 228
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+Goblin/w_up
+  rotate: false
+  xy: 284, 228
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+Goblin/w_up
+  rotate: false
+  xy: 396, 228
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+Goblin/w_up
+  rotate: false
+  xy: 60, 284
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+Goblin/w_up
+  rotate: false
+  xy: 172, 284
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+Goblin/w_up
+  rotate: false
+  xy: 284, 284
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+Goblin/w_up
+  rotate: false
+  xy: 396, 284
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+Slime/w_down
+  rotate: false
+  xy: 60, 4
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+Slime/w_down
+  rotate: false
+  xy: 172, 4
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+Slime/w_down
+  rotate: false
+  xy: 284, 4
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+Slime/w_down
+  rotate: false
+  xy: 396, 4
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+Slime/w_down
+  rotate: false
+  xy: 60, 60
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+Slime/w_down
+  rotate: false
+  xy: 172, 60
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+Slime/w_left
+  rotate: false
+  xy: 284, 60
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+Slime/w_left
+  rotate: false
+  xy: 396, 60
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+Slime/w_left
+  rotate: false
+  xy: 116, 116
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+Slime/w_left
+  rotate: false
+  xy: 228, 116
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+Slime/w_left
+  rotate: false
+  xy: 340, 116
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+Slime/w_left
+  rotate: false
+  xy: 4, 172
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 6
+Slime/w_right
+  rotate: false
+  xy: 116, 172
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+Slime/w_right
+  rotate: false
+  xy: 228, 172
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+Slime/w_right
+  rotate: false
+  xy: 340, 172
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+Slime/w_right
+  rotate: false
+  xy: 4, 228
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+Slime/w_right
+  rotate: false
+  xy: 116, 228
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+Slime/w_right
+  rotate: false
+  xy: 228, 228
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5
+Slime/w_up
+  rotate: false
+  xy: 340, 228
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 0
+Slime/w_up
+  rotate: false
+  xy: 4, 284
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 1
+Slime/w_up
+  rotate: false
+  xy: 116, 284
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 2
+Slime/w_up
+  rotate: false
+  xy: 228, 284
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 3
+Slime/w_up
+  rotate: false
+  xy: 340, 284
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 4
+Slime/w_up
+  rotate: false
+  xy: 4, 340
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 5

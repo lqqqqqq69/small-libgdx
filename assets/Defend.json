@@ -1,0 +1,14 @@
+{
+  "1": {
+    "name": "Door",
+    "health": 20 
+  },
+  "2": {
+    "name": "Door",
+    "health": 30 
+  },
+  "3": {
+    "name": "Door",
+    "health": 50 
+  }
+}

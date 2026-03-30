@@ -1,0 +1,107 @@
+
+skin.png
+size: 512, 512
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+CatapultTower
+  rotate: false
+  xy: 311, 317
+  size: 70, 80
+  split: 0, 0, 0, 0
+  orig: 70, 80
+  offset: 0, 0
+  index: -1
+GameOver_256x256-removebg-preview
+  rotate: false
+  xy: 1, 23
+  size: 256, 144
+  orig: 256, 144
+  offset: 0, 0
+  index: -1
+UI_Flat_Bar05a
+  rotate: false
+  xy: 1, 1
+  size: 32, 10
+  split: 3, 3, 3, 4
+  orig: 32, 10
+  offset: 0, 0
+  index: -1
+UI_Flat_BarFill01c
+  rotate: false
+  xy: 110, 18
+  size: 32, 3
+  split: 0, 0, 0, 0
+  orig: 32, 3
+  offset: 0, 0
+  index: -1
+UI_Flat_Button02a_1
+  rotate: false
+  xy: 311, 283
+  size: 32, 32
+  split: 4, 4, 8, 6
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+Victory_256x256
+  rotate: false
+  xy: 1, 169
+  size: 256, 81
+  orig: 256, 81
+  offset: 0, 0
+  index: -1
+WizardTower1
+  rotate: false
+  xy: 383, 379
+  size: 70, 100
+  split: 0, 0, 0, 0
+  orig: 70, 100
+  offset: 0, 0
+  index: -1
+bar
+  rotate: false
+  xy: 1, 13
+  size: 107, 8
+  split: 0, 1, 4, 1
+  orig: 107, 8
+  offset: 0, 0
+  index: -1
+bar_frame
+  rotate: false
+  xy: 311, 481
+  size: 130, 16
+  split: 3, 3, 3, 2
+  orig: 130, 16
+  offset: 0, 0
+  index: -1
+gold_coin_48x48
+  rotate: false
+  xy: 259, 202
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+s_down_00
+  rotate: false
+  xy: 311, 399
+  size: 70, 80
+  orig: 70, 80
+  offset: 0, 0
+  index: -1
+select.9
+  rotate: false
+  xy: 383, 344
+  size: 32, 33
+  split: 10, 10, 10, 11
+  orig: 32, 33
+  offset: 0, 0
+  index: -1
+village_defense_logo_small
+  rotate: false
+  xy: 1, 252
+  size: 308, 245
+  split: 11, 283, 0, 15
+  pad: 25, 24, 79, 14
+  orig: 308, 245
+  offset: 0, 0
+  index: -1

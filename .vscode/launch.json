@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        
+        
+        {
+            "type": "java",
+            "name": "Run Game (Lwjgl3Launcher)",
+            "request": "launch",
+            "mainClass": "io.github.lqqqqqq69.lwjgl3.Lwjgl3Launcher",
+            
+            
+        },
+        {
+            "type": "java",
+            "name": "Run TexturePackerTool",
+            "request": "launch",
+            "mainClass": "com.github.lqqqqqq69.utils.TexturePackerTool"
+        }
+    ]
+}

@@ -1,0 +1,230 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Map2.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "Tiles"
+    ],
+    "fileStates": {
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx": {
+            "scale": 1.6080729166666665,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 128.10364372469638,
+                "y": 256.20728744939277
+            }
+        },
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx#Ground_grass": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx#Road1_grass": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx#Road1_ground": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx#Road2_grass": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx#Road2_ground": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx#Road3_grass": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx#Road3_ground": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx#Road4_grass": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx#Road4_ground": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx#Road5_grass": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Anwender/Downloads/craftpix-net-550931-path-and-road-top-down-tileset-pixel-art/PNG_Tiled/Roads.tmx#Road5_ground": {
+            "scaleInDock": 1
+        },
+        "FieldsTileset-extruded.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Goblin.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "GoblinCombined.tsx": {
+            "dynamicWrapping": false
+        },
+        "Map.tmx": {
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 260,
+                "y": 160
+            }
+        },
+        "Map1.tmx": {
+            "scale": 3,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 59.33333333333334,
+                "y": 246
+            }
+        },
+        "Map2.tmx": {
+            "scale": 2.2879166666666664,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 239.95629211436898,
+                "y": 159.97086140957933
+            }
+        },
+        "Map3.tmx": {
+            "scale": 2.2879166666666664,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 239.95629211436898,
+                "y": 144.2360225824076
+            }
+        },
+        "Tiles/Combined-extruded.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles/Defends.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1.5,
+            "scaleInEditor": 16
+        },
+        "Tiles/Enemy.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1.5,
+            "scaleInEditor": 16
+        },
+        "Tiles/FieldsTileset-extruded.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles/GoblinCombined-extruded.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles/GoblinCombined.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles/NewGoblin.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles/Slime.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles/Tileset2-extruded.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1.5,
+            "scaleInEditor": 16
+        },
+        "Tiles/Tileset2-extrudednew.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1.5,
+            "scaleInEditor": 16
+        },
+        "Tiles/Tileset2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles/U_Walk-extruded.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles/tile_autumn.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles/tileset.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1.5,
+            "scaleInEditor": 16
+        },
+        "Tiles/tileset_autumn.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles/tileset_winter colours.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 16
+        },
+        "Tiles/tileset_winter_filter.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1.5,
+            "scaleInEditor": 16
+        },
+        "Tiles/tileset_winter_true.tsx": {
+            "scaleInDock": 1.5,
+            "scaleInEditor": 1
+        },
+        "tileset.tsx": {
+            "dynamicWrapping": false
+        }
+    },
+    "frame.defaultDuration": 200,
+    "last.imagePath": "C:/Users/Anwender/GAME/assets/maps/Tiles",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "Map3.tmx",
+        "Tiles/Tileset2-extruded.tsx",
+        "Map1.tmx",
+        "Tiles/tileset.tsx",
+        "Tiles/Enemy.tsx",
+        "Tiles/Defends.tsx",
+        "Tiles/Tileset2-extrudednew.tsx",
+        "Tiles/tileset_winter_filter.tsx",
+        "Tiles/tileset_winter_true.tsx",
+        "Tiles/tileset_autumn.tsx",
+        "Tiles/tile_autumn.tsx",
+        "Map2.tmx"
+    ],
+    "project": "map.tiled-project",
+    "property.type": "string",
+    "recentFiles": [
+        "Map3.tmx",
+        "Tiles/Tileset2-extruded.tsx",
+        "Map1.tmx",
+        "Tiles/tileset.tsx",
+        "Tiles/Enemy.tsx",
+        "Tiles/Defends.tsx",
+        "Tiles/Tileset2-extrudednew.tsx",
+        "Tiles/tileset_winter_filter.tsx",
+        "Tiles/tileset_winter_true.tsx",
+        "Tiles/tileset_autumn.tsx",
+        "Tiles/tile_autumn.tsx",
+        "Map2.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 8,
+    "tileset.spacing": 16,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    },
+    "tileset.type": 1
+}

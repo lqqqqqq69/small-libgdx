@@ -1,0 +1,66 @@
+{
+  "Slime": {
+    "name": "Slime",
+    "hp": 2,
+    "speed": 2,
+    "damage": 1,
+    "reward": 3,
+    "armor": 0,
+    "magic_resistance": false
+  },
+  "Goblin": {
+    "name": "Goblin",
+    "hp": 5,
+    "speed": 1.75,
+    "damage": 3,
+    "reward": 3,
+    "armor": 2,
+    "magic_resistance": false
+  },
+  "Wolf": {
+    "name": "Wolf",
+    "hp": 7,
+    "speed": 2.75,
+    "damage": 5,
+    "reward": 4,
+    "armor": 0,
+    "magic_resistance": false
+  },
+  "Lizard": {
+    "name": "Lizard",
+    "hp": 28,
+    "speed": 1.75,
+    "damage": 5,
+    "reward": 8,
+    "armor": 0,
+    "magic_resistance": true
+  },
+  "GoblinRider": {
+    "name": "GoblinRider",
+    "hp": 14,
+    "speed": 3,
+    "damage": 5,
+    "reward": 8,
+    "armor": 4,
+    "magic_resistance": false
+  },
+  "Seagull": {
+    "name": "Seagull",
+    "hp": 1,
+    "speed": 3.5,
+    "damage": 4,
+    "reward": 5,
+    "armor": 0,
+    "magic_resistance": false
+  },
+  "Golem": {
+    "name": "Golem",
+    "hp": 675,
+    "speed": 0.75,
+    "damage": 100,
+    "reward": 20000,
+    "armor": 9,
+    "magic_resistance": true
+  }
+}
+
