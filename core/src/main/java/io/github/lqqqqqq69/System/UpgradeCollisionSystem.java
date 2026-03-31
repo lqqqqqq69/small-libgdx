@@ -58,7 +58,7 @@ public class UpgradeCollisionSystem extends EntitySystem {
     public void update(float deltaTime) {
         Hitbox mouse = Hitbox.MAPPER.get(mouseCollision.getMouse());
   
-        if (inputService.KEY_ESC) currentlySelected = null; // ESC-Taste -> Auswahl aufheben
+        if (inputService.KEY_ESC) currentlySelected = null; // ESC-Taste -> Auswahl aufheben 
         if (!inputService.MOUSE1) return; // kein Linksklick -> return
 
         Entity clickedTower = null;
