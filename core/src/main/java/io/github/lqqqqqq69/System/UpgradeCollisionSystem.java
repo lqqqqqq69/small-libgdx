@@ -6,7 +6,6 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
 
-import io.github.lqqqqqq69.System.Collision;
 import io.github.lqqqqqq69.AudioService.AudioService;
 import io.github.lqqqqqq69.InputService.InputService;
 import io.github.lqqqqqq69.asset.SoundAsset;
@@ -59,6 +58,7 @@ public class UpgradeCollisionSystem extends EntitySystem {
     public void update(float deltaTime) {
         Hitbox mouse = Hitbox.MAPPER.get(mouseCollision.getMouse());
   
+        if (inputService.KEY_ESC) currentlySelected = null; // ESC-Taste -> Auswahl aufheben 
         if (!inputService.MOUSE1) return; // kein Linksklick -> return
 
         Entity clickedTower = null;

@@ -8,15 +8,19 @@ public class Offset {
     // Troop Offsets
     public static final float ARCHER_OFFSET_X = 0f;
     public static final float ARCHER_OFFSET_Y = 0.35f;
+    public static final int ARCHER_RELATIVE_OFFSET_Z = 1;
 
     public static final float CATAPULT_OFFSET_X = 0f;
     public static final float CATAPULT_OFFSET_Y = 1.35f;
+    public static final int CATAPULT_RELATIVE_OFFSET_Z = 1;
 
     public static final float WIZARD1_OFFSET_X = 0.05f;
     public static final float WIZARD1_OFFSET_Y = 0.45f;
+    public static final int WIZARD1_RELATIVE_OFFSET_Z = 1;
 
     public static final float WIZARD2_OFFSET_X = 0.05f;
     public static final float WIZARD2_OFFSET_Y = 0.50f;
+    public static final int WIZARD2_RELATIVE_OFFSET_Z = -1;
 
     // Hitbox Offsets
     public static final float TOWER1_HITBOX_Y = -0.7f;
@@ -30,4 +34,13 @@ public class Offset {
 
     // Transform Offset
     public static final float WIZARD_TOWER2_TRANSFORM_Y = 0.7f;
+
+    // Visuelle Offsets
+    public static final float TOWER1_VISUALBOX_Y = -0.35f;
+    public static final float TOWER2_VISUALBOX_Y = TOWER1_VISUALBOX_Y;
+    public static final float TOWER3_VISUALBOX_Y = TOWER1_VISUALBOX_Y;
+    public static final float CATAPULT_TOWER_VISUALBOX_Y = 0;
+    public static final float WIZARD_TOWER1_VISUALBOX_Y = 0f;
+    public static final float WIZARD_TOWER2_VISUALBOX_Y = 0f;
+    public static final float WIZARD_TOWER3_VISUALBOX_Y = WIZARD_TOWER2_VISUALBOX_Y;
 }

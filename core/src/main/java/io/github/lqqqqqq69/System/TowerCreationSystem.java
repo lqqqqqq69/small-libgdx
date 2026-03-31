@@ -36,6 +36,7 @@ public class TowerCreationSystem extends EntitySystem {
     private final AssetService assetService;
     private InputService inputService;
     private String towerType;               // Art des noch nicht platzierten Turms
+    private Entity hoverTower;                // Referenz auf den noch nicht platzierten Turm
 
     public TowerCreationSystem(Engine engine, Viewport viewport, AssetService assetService, InputService inputService) {
         this.engine = engine;
@@ -58,34 +59,26 @@ public class TowerCreationSystem extends EntitySystem {
      *  - isHovering = true setzen
      */
     @Override
-    public void update(float deltaTime) {
-        if (inputService.KEY_1 && !isHovering) {
+    public void update(float deltaTime) {     
+        if (inputService.KEY_1 || inputService.KEY_2 || inputService.KEY_3){ 
+            if (isHovering) engine.removeEntity(hoverTower);
+
             Vector3 mousePos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
             viewport.unproject(mousePos); // Umrechnung der "Bildschirmkoordinaten" in "Weltkoordinaten"
             Vector2 towerPos = new Vector2(mousePos.x, mousePos.y);
 
-            Entity tower = createTower(towerPos, "Tower1");
-            engine.addEntity(tower);
+            if(inputService.KEY_1){
+                hoverTower = createTower(towerPos, "Tower1");
+                engine.addEntity(hoverTower);
+            } else if (inputService.KEY_2) {
+                hoverTower = createTower(towerPos, "CatapultTower");
+                engine.addEntity(hoverTower);
+            } else if (inputService.KEY_3) {
+                hoverTower = createTower(towerPos, "WizardTower1");
+                engine.addEntity(hoverTower);
+            }
             isHovering = true;
-        }
-        if (inputService.KEY_2 && !isHovering) {
-            Vector3 mousePos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-            viewport.unproject(mousePos);
-            Vector2 towerPos = new Vector2(mousePos.x, mousePos.y);
-
-            Entity tower = createTower(towerPos, "CatapultTower");
-            engine.addEntity(tower);
-            isHovering = true;
-        }
-        if (inputService.KEY_3 && !isHovering) {
-            Vector3 mousePos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-            viewport.unproject(mousePos);
-            Vector2 towerPos = new Vector2(mousePos.x, mousePos.y);
-
-            Entity tower = createTower(towerPos, "WizardTower1");
-            engine.addEntity(tower);
-            isHovering = true;
-        }
+        }   
     }
 
     /**
@@ -142,57 +135,50 @@ public class TowerCreationSystem extends EntitySystem {
      * @param entity Turm-Entitaet
      */
     public void whichTower(Vector2 position, Entity entity){
-        if (towerType.equals("Tower1") || towerType.equals("Tower2") || towerType.equals("Tower3")){
-            entity.add(new Transform(
-                position,
-                1,
-                new Vector2(40, 55).scl(Main.UNIT_SCALE),
-                new Vector2(1, 1),
-                0f,
-                0
-            ));
-            entity.add(new Hitbox(new Vector2(position.x, position.y),
-                1.85f, 1.85f, Hitbox.BoxType.TOWER));
+        int x=0,y=0;
+        float width=0, height=0, offset = 0;
+
+        switch (towerType) {
+            case "Tower1":
+            case "Tower2":
+            case "Tower3":
+                x = 40;
+                y = 55;
+                width = 1.85f;
+                height = 1.85f; 
+                break;
+            case "CatapultTower":
+                x = 54;
+                y = 80;
+                width = 2.75f;
+                height = 2.75f;
+                break;
+            case "WizardTower1":
+                x = 45;
+                y = 65;
+                width = 2.25f;
+                height = 2.25f;
+                break;
+            case "WizardTower2":
+            case "WizardTower3":
+                x = 45;
+                y = 84;
+                width = 2.25f;
+                height = 2.25f;
+                offset = Offset.WIZARD_TOWER2_TRANSFORM_Y;
+                break;
         }
 
-        if (towerType.equals("CatapultTower")){
-            entity.add(new Transform(
-                position,
+        entity.add(new Transform(
+                new Vector2(position.x, position.y + offset),
                 1,
-                new Vector2(54, 80).scl(Main.UNIT_SCALE),
+                new Vector2(x, y).scl(Main.UNIT_SCALE),
                 new Vector2(1, 1),
                 0f,
                 0
             ));
             entity.add(new Hitbox(new Vector2(position.x, position.y),
-                2.75f, 2.75f, Hitbox.BoxType.TOWER));
-        }
-
-        if (towerType.equals("WizardTower1")){
-            entity.add(new Transform(
-                position,
-                1,
-                new Vector2(45, 65).scl(Main.UNIT_SCALE),
-                new Vector2(1, 1),
-                0f,
-                0
-            ));
-            entity.add(new Hitbox(new Vector2(position.x, position.y),
-                2.25f, 2.25f, Hitbox.BoxType.TOWER));
-        }
-
-        if(towerType.equals("WizardTower2") || towerType.equals("WizardTower3")){
-            entity.add(new Transform(
-                new Vector2(position.x, position.y + Offset.WIZARD_TOWER2_TRANSFORM_Y),
-                1,
-                new Vector2(45, 84).scl(Main.UNIT_SCALE),
-                new Vector2(1, 1),
-                0f,
-                0
-            ));
-            entity.add(new Hitbox(new Vector2(position.x, position.y),
-                2.25f, 2.25f, Hitbox.BoxType.TOWER));
-        }
+                width, height, Hitbox.BoxType.TOWER));
     }
 
     public void setHovering(boolean hovering) {
