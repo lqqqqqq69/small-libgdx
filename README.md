@@ -1,4 +1,4 @@
-# Executable jar file can be found at lwjgl3\build\libs\MysteryDEF-1.0.jar. Need Java installed to be able to play it. Have Fun :)
+Need Java installed to be able to play it. Have Fun :)
 
 # MysteryDEF
 
