@@ -30,4 +30,12 @@ public class Offset {
 
     // Transform Offset
     public static final float WIZARD_TOWER2_TRANSFORM_Y = 0.7f;
+
+    // Visuelle Offsets
+    public static final float TOWER1_VISUALBOX_Y = 10f;
+    public static final float TOWER2_VISUALBOX_Y = 0;
+    public static final float TOWER3_VISUALBOX_Y = 0;
+    public static final float CATAPULT_TOWER_VISUALBOX_Y = 0;
+    public static final float WIZARD_TOWER1_VISUALBOX_Y = 0;
+    public static final float WIZARD_TOWER2_VISUALBOX_Y = 0;
 }

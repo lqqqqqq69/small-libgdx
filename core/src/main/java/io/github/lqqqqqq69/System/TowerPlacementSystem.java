@@ -7,6 +7,7 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import io.github.lqqqqqq69.AudioService.AudioService;
@@ -27,6 +28,7 @@ import io.github.lqqqqqq69.component.ShootingData;
 import io.github.lqqqqqq69.component.TowerRange;
 import io.github.lqqqqqq69.component.Transform;
 import io.github.lqqqqqq69.component.Troop;
+import io.github.lqqqqqq69.component.Visualbox;
 import io.github.lqqqqqq69.component.additionalTowerData;
 
 /**
@@ -96,6 +98,7 @@ public class TowerPlacementSystem extends IteratingSystem {
         Entity troop = createTroop(position, towerCreationSystem.getTowerType());
         entity.add(new Troop(troop));
         engine.addEntity(troop);
+        createVisualBox(entity);
 
         entity.remove(PreviewTowerRange.class);
     }
@@ -107,8 +110,35 @@ public class TowerPlacementSystem extends IteratingSystem {
     public void createVisualBox(Entity entity){
         Transform transform = Transform.MAPPER.get(entity);
         Vector2 position = transform.getPosition();
+
+        Hitbox hitbox = Hitbox.MAPPER.get(entity);
+        Rectangle bounds = hitbox.getBounds();
         float offset = 0;
-        entity.add(new Hitbox(new Vector2(position.x, position.y), 1, 1, Hitbox.BoxType.VISUAL));
+
+        switch (towerCreationSystem.getTowerType()) {
+            case "Tower1":
+                offset = Offset.TOWER1_VISUALBOX_Y;
+                break;
+            case "Tower2":
+                offset = Offset.TOWER2_VISUALBOX_Y;
+                break;
+            case "Tower3":
+                offset = Offset.TOWER3_VISUALBOX_Y;
+                break;
+            case "CatapultTower":
+                offset = Offset.CATAPULT_TOWER_VISUALBOX_Y;
+                break;
+            case "WizardTower1":
+                offset = Offset.WIZARD_TOWER1_VISUALBOX_Y;
+                break;
+            case "WizardTower2":
+                offset = Offset.WIZARD_TOWER2_VISUALBOX_Y;
+                break;
+            case "WizardTower3":
+                offset = Offset.WIZARD_TOWER2_VISUALBOX_Y;
+                break;
+        }
+        entity.add(new Visualbox(new Vector2(position.x, position.y+offset), bounds.width, 4f));
     }
 
 

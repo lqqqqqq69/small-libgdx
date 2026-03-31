@@ -23,6 +23,7 @@ import io.github.lqqqqqq69.component.Hitbox;
 import io.github.lqqqqqq69.component.PreviewTowerRange;
 import io.github.lqqqqqq69.component.TowerRange;
 import io.github.lqqqqqq69.component.Transform;
+import io.github.lqqqqqq69.component.Visualbox;
 
 /**
  * RenderSystem rendert die Map, die Entitäten auf dieser und Turmreichweiten
@@ -132,11 +133,19 @@ public class RenderSystem extends SortedIteratingSystem implements Disposable {
         }
 
         // Anzeige aller Hitboxen in Rot
-        for (Entity entity : getEngine().getEntitiesFor(Family.all(Hitbox.class, Transform.class).get())) {
+        for (Entity entity : getEngine().getEntitiesFor(Family.all(Hitbox.class).get())) {
             Hitbox hitbox = Hitbox.MAPPER.get(entity);
             if (hitbox != null) {
                 shapeRenderer.setColor(1, 0, 0, 1); // Rot
                 Rectangle bounds = hitbox.getBounds();
+                shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+            }
+        }
+        for (Entity entity : getEngine().getEntitiesFor(Family.all(Visualbox.class).get())) {
+            Visualbox visualbox = Visualbox.MAPPER.get(entity);
+            if (visualbox != null) {
+                shapeRenderer.setColor(1, 0, 0, 1); // Rot
+                Rectangle bounds = visualbox.getBounds();
                 shapeRenderer.rect(bounds.x, bounds.y, bounds.width, bounds.height);
             }
         }

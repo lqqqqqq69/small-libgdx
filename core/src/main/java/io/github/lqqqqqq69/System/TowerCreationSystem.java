@@ -145,27 +145,35 @@ public class TowerCreationSystem extends EntitySystem {
         int x=0,y=0;
         float width=0, height=0, offset = 0;
 
-        if (towerType.equals("Tower1") || towerType.equals("Tower2") || towerType.equals("Tower3")){
-            x = 40;
-            y = 55;
-            width = 1.85f;
-            height = 1.85f; 
-        }else if (towerType.equals("CatapultTower")){
-            x = 54;
-            y = 80;
-            width = 2.75f;
-            height = 2.75f;
-        }else if (towerType.equals("WizardTower1")){
-            x = 45;
-            y = 65;
-            width = 2.25f;
-            height = 2.25f;
-        } else if(towerType.equals("WizardTower2") || towerType.equals("WizardTower3")){
-            x = 45;
-            y = 84;
-            width = 2.25f;
-            height = 2.25f;
-            offset = Offset.WIZARD_TOWER2_TRANSFORM_Y;
+        switch (towerType) {
+            case "Tower1":
+            case "Tower2":
+            case "Tower3":
+                x = 40;
+                y = 55;
+                width = 1.85f;
+                height = 1.85f; 
+                break;
+            case "CatapultTower":
+                x = 54;
+                y = 80;
+                width = 2.75f;
+                height = 2.75f;
+                break;
+            case "WizardTower1":
+                x = 45;
+                y = 65;
+                width = 2.25f;
+                height = 2.25f;
+                break;
+            case "WizardTower2":
+            case "WizardTower3":
+                x = 45;
+                y = 84;
+                width = 2.25f;
+                height = 2.25f;
+                offset = Offset.WIZARD_TOWER2_TRANSFORM_Y;
+                break;
         }
 
         entity.add(new Transform(
