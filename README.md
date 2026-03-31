@@ -2,6 +2,13 @@
 
 A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
 
+
+
+# Executable jar file can be found at lwjgl3\build\libs\MysteryDEF-1.0.jar. Need Java installed to be able to play it. Have Fun :)
+
+
+
+
 This project was generated with a template including simple application launchers and a main class extending `Game` that sets the first screen.
 
 ## Platforms
