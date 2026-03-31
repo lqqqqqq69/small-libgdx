@@ -12,7 +12,7 @@ public class Transform implements Component, Comparable<Transform> {
     public static final ComponentMapper<Transform> MAPPER = ComponentMapper.getFor(Transform.class);
 
     private final Vector2 position; // Position der Entität
-    private final int z;            // Z-Ebene
+    private int z;            // Z-Ebene
     private final Vector2 size;     // Größe in Units
     private final Vector2 scaling;  // Skalierung
     private float rotationDeg;      // Rotation 
@@ -45,7 +45,6 @@ public class Transform implements Component, Comparable<Transform> {
     }
 
     public Vector2 getPosition() {
-        
         return position;
     }
 
@@ -59,5 +58,12 @@ public class Transform implements Component, Comparable<Transform> {
 
     public float getRotationDeg() {
         return rotationDeg;
+    }
+
+    public int getZ() {
+        return z;
+    }
+    public void setZ(int z) {
+        this.z = z;
     }
 }

@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Intersector;
 
 import io.github.lqqqqqq69.component.Hitbox;
 import io.github.lqqqqqq69.component.TowerRange;
+import io.github.lqqqqqq69.component.Visualbox;
 
 /**
  * Collision enthält Methoden um zu testen, ob
@@ -18,5 +19,9 @@ public class Collision {
 
     public static boolean overlaps(TowerRange a, Hitbox b) {
         return Intersector.overlaps(a.getRange(), b.getBounds());
+    }
+
+    public static boolean overlaps(Visualbox a, Visualbox b) {
+        return a.getBounds().overlaps(b.getBounds());
     }
 }
