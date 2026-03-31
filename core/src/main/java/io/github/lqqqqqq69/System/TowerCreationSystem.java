@@ -36,6 +36,7 @@ public class TowerCreationSystem extends EntitySystem {
     private final AssetService assetService;
     private InputService inputService;
     private String towerType;               // Art des noch nicht platzierten Turms
+    private Entity hoverTower;                // Referenz auf den noch nicht platzierten Turm
 
     public TowerCreationSystem(Engine engine, Viewport viewport, AssetService assetService, InputService inputService) {
         this.engine = engine;
@@ -58,34 +59,26 @@ public class TowerCreationSystem extends EntitySystem {
      *  - isHovering = true setzen
      */
     @Override
-    public void update(float deltaTime) {
-        if (inputService.KEY_1 && !isHovering) {
+    public void update(float deltaTime) {     
+        if (inputService.KEY_1 || inputService.KEY_2 || inputService.KEY_3){ 
+            if (isHovering) engine.removeEntity(hoverTower);
+
             Vector3 mousePos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
             viewport.unproject(mousePos); // Umrechnung der "Bildschirmkoordinaten" in "Weltkoordinaten"
             Vector2 towerPos = new Vector2(mousePos.x, mousePos.y);
 
-            Entity tower = createTower(towerPos, "Tower1");
-            engine.addEntity(tower);
+            if(inputService.KEY_1){
+                hoverTower = createTower(towerPos, "Tower1");
+                engine.addEntity(hoverTower);
+            } else if (inputService.KEY_2) {
+                hoverTower = createTower(towerPos, "CatapultTower");
+                engine.addEntity(hoverTower);
+            } else if (inputService.KEY_3) {
+                hoverTower = createTower(towerPos, "WizardTower1");
+                engine.addEntity(hoverTower);
+            }
             isHovering = true;
-        }
-        if (inputService.KEY_2 && !isHovering) {
-            Vector3 mousePos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-            viewport.unproject(mousePos);
-            Vector2 towerPos = new Vector2(mousePos.x, mousePos.y);
-
-            Entity tower = createTower(towerPos, "CatapultTower");
-            engine.addEntity(tower);
-            isHovering = true;
-        }
-        if (inputService.KEY_3 && !isHovering) {
-            Vector3 mousePos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-            viewport.unproject(mousePos);
-            Vector2 towerPos = new Vector2(mousePos.x, mousePos.y);
-
-            Entity tower = createTower(towerPos, "WizardTower1");
-            engine.addEntity(tower);
-            isHovering = true;
-        }
+        }   
     }
 
     /**
