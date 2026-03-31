@@ -1,9 +1,13 @@
 package io.github.lqqqqqq69.System;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -42,6 +46,8 @@ public class TowerPlacementSystem extends IteratingSystem {
     private final CashSystem cashSystem;
     private final InputService inputService;
     private final AudioService audioService;
+    private ImmutableArray<Entity> visualboxes;
+    private Map<Entity, Integer> overlapMap = new HashMap<>();
 
     public TowerPlacementSystem( TowerCreationSystem towerCreationSystem, Engine engine, AssetService assetService,
             PlacementValidationSystem collisionSystem, CashSystem cashSystem, InputService inputService, AudioService audioService) 
@@ -77,6 +83,12 @@ public class TowerPlacementSystem extends IteratingSystem {
             engine.removeEntity(entity);
         }
     }
+    
+    @Override
+    public void addedToEngine(Engine engine) {
+        super.addedToEngine(engine); // wichtig für IteratingSystem, sonst sind entities null
+        visualboxes = engine.getEntitiesFor(Family.all(Visualbox.class).get());
+    }
 
     /**
      * placeTower platziert den Turm vollstaendig
@@ -95,12 +107,14 @@ public class TowerPlacementSystem extends IteratingSystem {
         Transform transform = Transform.MAPPER.get(entity);
         Vector2 position = transform.getPosition();
 
-        Entity troop = createTroop(position, towerCreationSystem.getTowerType());
+        Entity troop = createTroop(position, towerCreationSystem.getTowerType(), transform.getZ());
         entity.add(new Troop(troop));
         engine.addEntity(troop);
         createVisualBox(entity);
 
         entity.remove(PreviewTowerRange.class);
+
+        checkOverlap();
     }
 
     /**
@@ -114,31 +128,39 @@ public class TowerPlacementSystem extends IteratingSystem {
         Hitbox hitbox = Hitbox.MAPPER.get(entity);
         Rectangle bounds = hitbox.getBounds();
         float offset = 0;
+        float height = 0;
 
         switch (towerCreationSystem.getTowerType()) {
             case "Tower1":
                 offset = Offset.TOWER1_VISUALBOX_Y;
+                height = 2.25f;
                 break;
             case "Tower2":
                 offset = Offset.TOWER2_VISUALBOX_Y;
+                height = 2.25f;
                 break;
             case "Tower3":
                 offset = Offset.TOWER3_VISUALBOX_Y;
+                height = 2.25f;
                 break;
             case "CatapultTower":
                 offset = Offset.CATAPULT_TOWER_VISUALBOX_Y;
+                height = 4.25f;
                 break;
             case "WizardTower1":
                 offset = Offset.WIZARD_TOWER1_VISUALBOX_Y;
+                height = 3.6f;
                 break;
             case "WizardTower2":
                 offset = Offset.WIZARD_TOWER2_VISUALBOX_Y;
+                height = 5f;
                 break;
             case "WizardTower3":
-                offset = Offset.WIZARD_TOWER2_VISUALBOX_Y;
+                offset = Offset.WIZARD_TOWER3_VISUALBOX_Y;
+                height = 5f;
                 break;
         }
-        entity.add(new Visualbox(new Vector2(position.x, position.y+offset), bounds.width, 4f));
+        entity.add(new Visualbox(new Vector2(position.x, position.y+offset), bounds.width, height));
     }
 
 
@@ -153,7 +175,7 @@ public class TowerPlacementSystem extends IteratingSystem {
      * @param tower Art des Turms
      * @return Turmtruppe
      */
-    public Entity createTroop(Vector2 position, String tower) {
+    public Entity createTroop(Vector2 position, String tower, int z) {
         Entity entity = engine.createEntity();
         Tower towerData = Tower.getType(tower).createInstance();
 
@@ -185,7 +207,7 @@ public class TowerPlacementSystem extends IteratingSystem {
         ));
 
         // Anpassung truppenspezifischer Komponenten
-        whichTroop(entity, towerData, position, region);
+        whichTroop(entity, towerData, position, region, z);
 
         entity.add(new TowerRange(Transform.MAPPER.get(entity).getPosition().cpy(), towerData.range));
 
@@ -205,31 +227,34 @@ public class TowerPlacementSystem extends IteratingSystem {
      * @param position noch nicht angepasste Position der Turmtruppe
      * @param region Ausschnitt aus dem TexturAatlas
      */
-    private void whichTroop(Entity entity, Tower towerData, Vector2 position, TextureRegion region) {
+
+    private void whichTroop(Entity entity, Tower towerData, Vector2 position, TextureRegion region, int z) {
         Vector2 transformPosition = new Vector2(position.x, position.y);
         
         Vector2 size = new Vector2();
 
-        int z = 2;
-
+        // z-Position der Truppe wird an die des Turms angepasst, damit die Truppe nicht hinter dem Turm lieg
         if (towerData.troopName.equals("Archer1")|| towerData.troopName.equals("Archer2") || towerData.troopName.equals("Archer3")) {
             transformPosition.y += Offset.ARCHER_OFFSET_Y;
+            z += Offset.ARCHER_RELATIVE_OFFSET_Z;
             size.set(24, 24);
         
         } else if (towerData.troopName.equals("Catapult")) {
             transformPosition.y += Offset.CATAPULT_OFFSET_Y;
+            z += Offset.CATAPULT_RELATIVE_OFFSET_Z;
             size.set(34, 34);
         
         } else if (towerData.troopName.equals("Wizard1")) {
             transformPosition.y += Offset.WIZARD1_OFFSET_Y;
             transformPosition.x += Offset.WIZARD1_OFFSET_X;
+            z += Offset.WIZARD1_RELATIVE_OFFSET_Z;
             size.set(22, 22);
 
         } else if (towerData.troopName.equals("Wizard2")){
             transformPosition.y += Offset.WIZARD2_OFFSET_Y;
             transformPosition.x += Offset.WIZARD2_OFFSET_X;
+            z += Offset.WIZARD2_RELATIVE_OFFSET_Z;
             size.set(22, 22);
-            z =-1; // Anpassung z, damit Truppe nicht sichtbar ist
         }
 
         entity.add(new Graphic(region, Color.WHITE.cpy()));
@@ -242,4 +267,88 @@ public class TowerPlacementSystem extends IteratingSystem {
                 0           
         ));
     }
+
+    private void checkOverlap(){
+        
+        for (Entity visualbox : visualboxes){
+            boolean anyOverlap = false;
+            Transform transform = Transform.MAPPER.get(visualbox);
+
+            additionalTowerData towerData = additionalTowerData.MAPPER.get(visualbox);
+            Troop troop = Troop.MAPPER.get(visualbox);
+            Transform troopTransform = Transform.MAPPER.get(troop.getTroop());
+
+            for (int i = 0; i < visualboxes.size(); i++){
+               
+                Entity othervisualbox = visualboxes.get(i);
+                Transform othertransform = Transform.MAPPER.get(othervisualbox);
+                Troop otherTroop = Troop.MAPPER.get(othervisualbox);
+                Transform otherTroopTransform = Transform.MAPPER.get(otherTroop.getTroop());
+
+                if (visualbox != othervisualbox && transform.getPosition().y < othertransform.getPosition().y){
+                    Visualbox visualboxComponent = Visualbox.MAPPER.get(visualbox);
+                    Visualbox othervisualboxComponent = Visualbox.MAPPER.get(othervisualbox);
+                    if (Collision.overlaps(visualboxComponent, othervisualboxComponent)){
+                        transform.setZ(othertransform.getZ() + 2);
+                        switch (towerData.getTowerType()){
+                            case "Tower1":
+                                troopTransform.setZ(transform.getZ() + Offset.ARCHER_RELATIVE_OFFSET_Z);
+                                break;
+                            case "Tower2":
+                                troopTransform.setZ(transform.getZ() + Offset.ARCHER_RELATIVE_OFFSET_Z);
+                                break;
+                            case "Tower3":
+                                troopTransform.setZ(transform.getZ() + Offset.ARCHER_RELATIVE_OFFSET_Z);
+                                break;
+                            case "CatapultTower":
+                                troopTransform.setZ(transform.getZ() + Offset.CATAPULT_RELATIVE_OFFSET_Z);
+                                break;
+                            case "WizardTower1":
+                                troopTransform.setZ(transform.getZ() + Offset.WIZARD1_RELATIVE_OFFSET_Z);
+                                break;
+                            case "WizardTower2":
+                                troopTransform.setZ(transform.getZ() + Offset.WIZARD2_RELATIVE_OFFSET_Z);
+                                break;
+                            case "WizardTower3":
+                                troopTransform.setZ(transform.getZ() + Offset.WIZARD2_RELATIVE_OFFSET_Z);
+                                break;
+                        }
+                    anyOverlap = true;
+                    System.out.println("y: " + transform.getPosition().y + " other y: " + othertransform.getPosition().y);
+                    System.out.println("z: " + transform.getZ() + " other z: " + othertransform.getZ());
+                    System.err.println("troop z: " + troopTransform.getZ() + " other troop z: " + otherTroopTransform.getZ());
+                    
+                    }
+                }
+            }
+            if (!anyOverlap){
+                
+                transform.setZ(1);
+                switch (towerData.getTowerType()){
+                        case "Tower1":
+                            troopTransform.setZ(transform.getZ() + Offset.ARCHER_RELATIVE_OFFSET_Z);
+                            break;
+                        case "Tower2":
+                            troopTransform.setZ(transform.getZ() + Offset.ARCHER_RELATIVE_OFFSET_Z);
+                            break;
+                        case "Tower3":
+                            troopTransform.setZ(transform.getZ() + Offset.ARCHER_RELATIVE_OFFSET_Z);
+                            break;
+                        case "CatapultTower":
+                            troopTransform.setZ(transform.getZ() + Offset.CATAPULT_RELATIVE_OFFSET_Z);
+                            break;
+                        case "WizardTower1":
+                            troopTransform.setZ(transform.getZ() + Offset.WIZARD1_RELATIVE_OFFSET_Z);
+                            break;
+                        case "WizardTower2":
+                            troopTransform.setZ(transform.getZ() + Offset.WIZARD2_RELATIVE_OFFSET_Z);
+                            break;
+                        case "WizardTower3":
+                            troopTransform.setZ(transform.getZ() + Offset.WIZARD2_RELATIVE_OFFSET_Z);
+                            break;
+                        }
+            }
+        }
+    }
 }
+

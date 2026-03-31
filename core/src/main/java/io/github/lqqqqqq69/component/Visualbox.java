@@ -6,20 +6,19 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * Der Hitbox-Komponent definiert die Art und Größe der (rechteckigen) Hitboxen einer Entität
+ * 
  */
 public class Visualbox implements Component {
     public static final ComponentMapper<Visualbox> MAPPER = ComponentMapper.getFor(Visualbox.class);
 
-    private Rectangle bounds;       // Hitbox
+    private Rectangle bounds;       // Visualbox
 
     /**
-     * Der Konstruktorsetzt die Hitbox
+     * Der Konstruktor setzt die Visualbox
      * 
-     * @param center  Mittelpunkt der Hitbox
+     * @param center  Mittelpunkt der Visualbox
      * @param width Breite
      * @param height Höhe
-     * @param boxType Art der Hitbo
      */
     public Visualbox(Vector2 center, float width, float height) { 
         this.bounds = new Rectangle(
